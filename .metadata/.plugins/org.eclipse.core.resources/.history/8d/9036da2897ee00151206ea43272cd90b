@@ -1,0 +1,37 @@
+package ch07;
+
+public class Ex7_23 {
+
+	public static void main(String[] args) {
+		boolean[] storge = new boolean[100];
+		for (int i = 0; i < storge.length; i++) {
+			storge[i] = true;
+		}
+		changeTheStatus(storge);
+		for (int i = 0; i < storge.length; i++) {
+			if (storge[i]==true) {
+				System.out.print((i+1)+" ");
+			}
+		}
+	}
+	
+	public static boolean[] changeTheStatus(boolean[] storge) {
+		int j = 0;
+		for (int student = 2; student <= 100; student++) {
+			int k = 1;
+			while(j < 100) {
+				j = student*k;
+				if (storge[j-1]==false) {
+					storge[j-1] = true;
+				}
+				else {
+					storge[j-1] = false;
+				}
+				k++;
+			}
+			j = 0;
+		}
+		return storge;
+	}
+
+}
